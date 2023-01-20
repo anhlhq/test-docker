@@ -11,7 +11,7 @@ pipeline{
 		stage('Build') {
 			steps {
 				echo "${BRANCH_NAME}"
-				sh 'docker build -f Dockerfile.${BRANCH_NAME} --build-arg BE_URI=${BE_URI} -t teeaitech/demo-fe:${BRANCH_NAME} .'
+				sh 'docker build -f Dockerfile.${BRANCH_NAME} --build-arg BE_URI=${BE_URI} -t lehuyquanganh/teeaitech:${BRANCH_NAME} .'
 			}
 		}
 
@@ -23,7 +23,7 @@ pipeline{
 
 		stage('Push') {
 			steps {
-				sh 'docker push teeaitech/demo-fe:${BRANCH_NAME}'
+				sh 'docker push lehuyquanganh/teeaitech:${BRANCH_NAME}'
 			}
 		}
 
