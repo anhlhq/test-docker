@@ -23,7 +23,6 @@ pipeline{
 
 		stage('Push') {
 			steps {
-				sh 'docker tag teeaitech/demo-fe:${BRANCH_NAME} teeaitech/demo-fe:${BRANCH_NAME}'
 				sh 'docker push teeaitech/demo-fe:${BRANCH_NAME}'
 			}
 		}
