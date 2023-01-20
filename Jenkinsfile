@@ -1,7 +1,7 @@
 pipeline{
 	agent any
 	environment {
-		DOCKERHUB_CREDENTIALS=credentials('	ef04a9c7-ca92-40f7-b4a6-50832274c0ec')
+		DOCKERHUB_CREDENTIALS=credentials('ef04a9c7-ca92-40f7-b4a6-50832274c0ec')
 		BRANCH_NAME="${GIT_BRANCH.split('/')[1]}"
 		DOCKER_COMPOSE_FOLDER="${BRANCH_NAME == "production" ? "/home/agenttool/docker/agenttool" : "/home/dev/docker/demo"}"
         SSH_HOST="server.teeaitech.com"
