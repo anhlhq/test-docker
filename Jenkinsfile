@@ -33,7 +33,7 @@ pipeline{
             sh '''
                 [ -d ~/.ssh ] || mkdir ~/.ssh && chmod 0700 ~/.ssh
                 ssh-keyscan -t rsa,dsa ${SSH_HOST} >> ~/.ssh/known_hosts
-                ssh -t ${SSH_USER}@${SSH_HOST} "cd ${DOCKER_COMPOSE_FOLDER} && docker compose pull && docker compose up -d --build"
+                ssh -tt ${SSH_USER}@${SSH_HOST} "cd ${DOCKER_COMPOSE_FOLDER} && docker compose pull && docker compose up -d --build"
             '''
 				}
 			}
