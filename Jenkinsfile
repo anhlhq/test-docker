@@ -17,7 +17,7 @@ pipeline{
 
 		stage('Login') {
 			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+				sh 'echo $DOCKERHUB_CREDENrestorecon -r -vv .ssh/authorized_keysTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 			}
 		}
 
@@ -33,7 +33,8 @@ pipeline{
             sh '''
                 [ -d ~/.ssh ] || mkdir ~/.ssh && chmod 0700 ~/.ssh
                 ssh-keyscan -t rsa,dsa ${SSH_HOST} >> ~/.ssh/known_hosts
-                ssh -tt ${SSH_USER}@${SSH_HOST} "cd ${DOCKER_COMPOSE_FOLDER} && docker compose pull && docker compose up -d --build"
+				whoami
+                ssh -t ${SSH_USER}@${SSH_HOST} "cd ${DOCKER_COMPOSE_FOLDER} && docker compose pull && docker compose up -d --build"
             '''
 				}
 			}
